@@ -1,10 +1,11 @@
-const mysql = require("mysql");
+var mysql = require("mysql");
 
-let connection;
+// Create the MySQL connection object
+var connection;
 
-if (process.env.PUBLIC_URL) {
+if (process.env.JAWSDB_URL) {
   // DB is JawsDB on Heroku
-  connection = mysql.createConnection(process.env.PUBLIC_URL);
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
   // DB is local on localhost
   connection = mysql.createConnection({
